@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MediTrip</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+		<link href="themes/css/bootstrappage.css" rel="stylesheet"/>
+
+		<!-- global styles -->
+		<link href="themes/css/flexslider.css" rel="stylesheet"/>
+		<link href="themes/css/main.css" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="themes/js/jquery-1.7.2.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="themes/js/superfish.js"></script>
+		<script src="themes/js/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    <body>
+		<div id="top-bar" class="container">
+			<div class="row">
+				<div class="span8" >
+					<div class="account pull-right">
+						<ul class="user-menu">
+							<li><a href="cart.html">My Reservation</a></li>
+							<li><a href="register.html">Login</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu">
+					<a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="hanbangproducts.html">Hanbang</a></li>
+							<li><a href="destisryproducts.html">Destistry</a></li>
+							<li><a href="orthopedicsproducts.html">Orthopedics</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<section class="header_text sub">
+				<h4><span>Detail Information</span></h4>
+			</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span9">
+						<div class="row">
+							<div class="span4">
+								<a href="themes/images/ladies/jaseng.jpg" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" src="themes/images/ladies/jaseng.jpg"></a>
+							</div>
+							<div class="span5">
+								<address>
+									<strong>병원명:</strong> <span>자생한방병원</span><br>
+									<strong>위치:</strong> <span>서울시 강남구</span><br>
+									<strong>주요진료과목:</strong> <span>척추질환, 턱관절</span><br>
+									<strong>연락처:</strong> <span>1577-0007</span><br>
+								</address>
+								<h4><strong>가격: 150,000원</strong></h4>
+							</div>
+							<div class="span5">
+								<form class="form-inline">
+									<p>&nbsp;</p>
+									<button class="btn btn-inverse" type="submit">Add to My Reservation</button>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="span9">
+								<ul class="nav nav-tabs" id="myTab">
+									<li class="active"><a href="#home">기본정보</a></li>
+									<li class=""><a href="#profile">상세설명</a></li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="home">"1) 29년간 비수술 척추치료 <br>2) 한방-양방 통합진료시스템 <br>3) 5개국어 통역 서비스 제공"
+									</div>
+									<div class="tab-pane" id="profile">
+									<b>*제공 서비스</b><br>"1) 통역 제공(영어, 일본어, 러시아, 몽골어, 독일어)<br>2) 전화, 메일상담<br>3) 한약통관서류제공 및 해외배송
+									<br>4) 진료서류 외국어 발급(진단서, 소견서, 영수증, 진료기록 사본, 진료 예약 확인증 등)<br>5) 제휴호텔 예약 서비스<br>6) 입원환자 공항 송영 서비스
+									<br>7) 관광, 숙박정보 제공"<br><br>
+									<b>*의료진</b><br>주환수, 김하늘, 라이문트 로이어<br><br>
+									<b>*진료시간</b><br>09:00~18:00
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span5">
+						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
+						<p>회사 관련 설명 해주세요</p>
+						<br/>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>
+				</div>
+			</section>
+			<section id="copyright">
+				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
+			</section>
+		</div>
+		<script src="themes/js/common.js"></script>
+		<script>
+			$(function () {
+				$('#myTab a:first').tab('show');
+				$('#myTab a').click(function (e) {
+					e.preventDefault();
+					$(this).tab('show');
+				})
+			})
+			$(document).ready(function() {
+				$('.thumbnail').fancybox({
+					openEffect  : 'none',
+					closeEffect : 'none'
+				});
+
+				$('#myCarousel-2').carousel({
+                    interval: 2500
+                });
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<%- include('includes/header'); -%>
+<%- include('includes/nav'); -%>
+
+<div class="container">
+
+  <h1>Hospital list</h1>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link <% if (!selectedCategory) { %>active<% } %>" href="/news">전체</a>
+    </li>
+    <% for(var i=0; i < category.length; i++) { %>
+      <a class="nav-link <% if (selectedCategory==category[i].id) { %>active<% } %>" href="?category=<%= category[i].id %>"><%= category[i].title %></a>
+    <% } %>
+  </ul>
+
+  <% if (news.length>0) { %>
+  <ul class="list-unstyled">
+    <% for(var i=0; i < news.length; i++) { %>
+    <li class="media">
+
+      <% if (typeof news[i].upload !== 'undefined' && news[i].upload) { %>
+        <a href="/news/<%= news[i].id %>"><img class="mr-3" src="/uploads/<%= news[i].upload %>"width="128"></a>
+      <% } %>
+
+      <div class="media-body">
+        <h5 class="mt-0 mb-1"><a href="/news/<%= news[i].id %>"><%= news[i].title %></a></h5>
+        <%= news[i].category_title %> /
+        <%= news[i].author %>
+      </div>
+    </li>
+    <% } %>
+  </ul>
+
+  <% } else { %>
+    <div class="card">
+      <div class="card-header">
+        Alert!
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Please add new article</p>
+        </blockquote>
+      </div>
+    </div>
+  <% } %>
+
+  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+    </div>
+    <div class="input-group">
+  
+    </div>
+  </div>
+</div>
+<%- include('includes/footer'); -%>

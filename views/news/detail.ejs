@@ -1,0 +1,76 @@
+<%- include('includes/header'); -%>
+<%- include('includes/nav'); -%>
+
+<div class="container">
+
+<% if (news) { %>
+  <div class="row">
+    <div class="col">
+      <h1><%= news.title %></h1>
+      <h5>분류: <%= news.category_title %> / 의료진: <%= news.author %></h5>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="white-space: pre-line;">
+      <%- news.desc %>
+    </div>
+    <div class="col">
+      <% if (typeof news.upload !== 'undefined' && news.upload) { %>
+        <img src="/uploads/<%= news.upload %>">
+      <% } %>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col">
+        <hr>
+      </div>
+  </div>
+
+  <b>고객 예약</b><br>
+  (예약이 확정되면 개인정보에 입력된 번호로 문자 메세지가 갑니다.)
+  <form method="post" action="/news/comment">
+    <textarea name="hidden" name="article_id" value="<%= news.use %>"></textarea>
+    <input type="submit" value="예약하기">
+  </form>
+  -Jenny / 2018.12.15~2018.12.17
+
+  <div class="row">
+      <div class="col">
+        <hr>
+      </div>
+  </div>
+
+  <b>후기 보기</b><br>
+  <form method="post" action="/news/comment">
+    <input type="hidden" name="articleId" value="<%= news.id %>">
+    <textarea name="comment"></textarea>
+    <input type="submit" value="후기 작성">
+  </form>
+
+  <ul>
+  <% for (var i=0; i<comments.length; i++) { %>
+    <li><%= comments[i].comment %> /
+    <%= moment(comments[i].inserted).format('YYYY-MM-DD h:mm:ss a') %>
+    <a href="/news/<%= comments[i].id %>/comment-delete">삭제</a> </li>
+    <% } %>
+
+  </ul>
+
+  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+
+    <div class="btn-group" role="group" aria-label="First group">
+    
+    </div>
+    <div class="input-group">
+      <a href="/news/" class="btn btn-outline-info">목록</a>
+    </div>
+  </div>
+<% } else { %>
+  <p>Not exist</p>
+<% } %>
+
+</div>
+<%- include('includes/footer'); -%>

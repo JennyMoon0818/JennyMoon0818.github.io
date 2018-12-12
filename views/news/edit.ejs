@@ -1,0 +1,43 @@
+<%- include('includes/header'); -%>
+<%- include('includes/nav'); -%>
+
+<div class="container">
+  <form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="inputTitle">Category</label>
+      <select class="custom-select" name="category">
+        <option>Select category</option>
+        <% for (var i=0; i < category.length; i++) { %>
+          <option value="<%= category[i].id %>" <% if (news.id == category[i].id) { %>selected<% } %>><%= category[i].title %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="inputTitle">Title</label>
+      <input type="text" name="title" class="form-control" id="inputTitle" aria-describedby="inputTitle" placeholder="Enter title" value="<%= news.title %>">
+      <small id="titleHelp" class="form-text text-muted">기사의 제목을 입력해주세요.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputDesc">Description</label>
+      <textarea name="desc" rows="8" cols="80" class="form-control" id="inputDesc"><%= news.desc %></textarea>
+      <small id="descHelp" class="form-text text-muted">내용을 입력해주세요.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputTitle">Doctors</label>
+      <input type="text" name="author" class="form-control" id="inputAuthor" aria-describedby="inputAuthor" placeholder="Enter author" value="<%= news.author %>">
+      <small id="authorHelp" class="form-text text-muted">의사의 이름을 입력해주세요. </small>
+    </div>
+    <div class="form-group">
+      <label for="inputUpload">Photo</label>
+      <input type="file" name="upload"  id="inputUpload" aria-describedby="inputUpload">
+      <small id="uploadHelp" class="form-text text-muted">
+        교체할 사진을 업로드 해주세요.
+        <% if (news.upload) { %>현재 업로드된 파일: <%= news.upload %><% } %>
+      </small>
+    </div>
+    <button type="submit" class="btn btn-primary">수정하기</button>
+    <a href="/news" class="btn btn-secondary">취소</a>
+  </form>
+</div>
+<%- include('includes/footer'); -%>
